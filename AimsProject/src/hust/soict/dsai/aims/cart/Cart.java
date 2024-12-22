@@ -1,16 +1,14 @@
 package hust.soict.dsai.aims.cart;
+
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
-import hust.soict.dsai.aims.media.Book;
-import hust.soict.dsai.aims.media.CompactDisc;
 
 public class Cart {
     public static int maxDvD=20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ArrayList<Media> itemsOrdered = new ArrayList<>();
     public void addMedia(Media media){
         if(!itemsOrdered.contains(media)){
             itemsOrdered.add(media);
@@ -27,7 +25,7 @@ public class Cart {
     public double calculateTotalCost() {
         double total = 0;
         for (Media media : itemsOrdered) {
-            total += media.getCost(); 
+            total += media.getCost();
         }
         return total;
     }
@@ -50,19 +48,21 @@ public class Cart {
                 break;
             }
         }
-        if(!a) System.out.println("No match is found!\n");
+        if(!a) {
+			System.out.println("No match is found!\n");
+		}
     }
     public ArrayList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
-    
+
     public Media searchByTitle(String title) {
         for (Media media : itemsOrdered) {
             if (title.equals(media.getTitle())) {
                 return media;
             }
         }
-        System.out.println("No match is found!"); 
+        System.out.println("No match is found!");
         return null;
     }
     public void sortByTitle(){
@@ -72,7 +72,7 @@ public class Cart {
         Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
     }
     public void clear() {
-        itemsOrdered.clear();  
+        itemsOrdered.clear();
         System.out.println("The cart has been cleared.");
     }
 }

@@ -11,7 +11,7 @@ public abstract class Media implements Comparable<Media> {
 
     // Comparator để sắp xếp theo title, nếu title giống nhau thì sắp xếp theo cost giảm dần
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
-    
+
     // Comparator để sắp xếp theo cost giảm dần, nếu cost giống nhau thì sắp xếp theo title
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
@@ -52,10 +52,10 @@ public abstract class Media implements Comparable<Media> {
         if (obj == null || !(obj instanceof Media)) {
             return false;
         }
-        
+
         // Ép kiểu obj thành Media
         Media media = (Media) obj;
-        
+
         // So sánh title (cả hai đều null hoặc giống nhau)
         if (this.title == null) {
             return media.title == null;
@@ -95,18 +95,26 @@ public abstract class Media implements Comparable<Media> {
                 return titleCompare;
             }
             // Nếu title giống nhau, so sánh theo cost giảm dần
-            if (this.cost > other.cost) return -1;
-            if (this.cost < other.cost) return 1;
+            if (this.cost > other.cost) {
+				return -1;
+			}
+            if (this.cost < other.cost) {
+				return 1;
+			}
             return 0;
         }
-        
+
         // Xử lý các trường hợp title null
-        if (this.title == null && other.title != null) return 1;
-        if (this.title != null && other.title == null) return -1;
-        
+        if (this.title == null && other.title != null) {
+			return 1;
+		}
         // Nếu cả hai title đều null, so sánh theo cost giảm dần
-        if (this.cost > other.cost) return -1;
-        if (this.cost < other.cost) return 1;
+        if ((this.title != null && other.title == null) || (this.cost > other.cost)) {
+			return -1;
+		}
+        if (this.cost < other.cost) {
+			return 1;
+		}
         return 0;
     }
-} 
+}

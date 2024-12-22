@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.screen.customer.controller;
 import java.io.IOException;
 
+import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,13 +18,13 @@ public class ViewStoreController {
 
     @FXML
     private GridPane gridPane;
-    
+
     @FXML
     public void initialize() {
     	final String ITEM_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Item.fxml";
     	int column = 0;
     	int row = 1;
-    	for (int i=0; i<store.getItemsInStore().size(); i++) {
+    	for (Media element : store.getItemsInStore()) {
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader();
 				fxmlLoader.setLocation(getClass().getResource(ITEM_FXML_FILE_PATH));
@@ -31,15 +32,15 @@ public class ViewStoreController {
 				fxmlLoader.setController(itemController);
 				AnchorPane anchorPane = new AnchorPane();
 				anchorPane = fxmlLoader.load();
-				itemController.setData(store.getItemsInStore().get(i));
-				
+				itemController.setData(element);
+
 				if (column == 3) {
 					column = 0;
 					row ++;
 				}
-				
+
 				gridPane.add(anchorPane, column++, row);
-				GridPane.setMargin(anchorPane, new Insets(20,10,10,10));	
+				GridPane.setMargin(anchorPane, new Insets(20,10,10,10));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

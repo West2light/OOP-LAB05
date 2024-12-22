@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class TestPolymorphism {
 
-	
+
 
 	    public static void main(String[] args) {
 	        // Create an ArrayList of Media
@@ -26,7 +26,7 @@ public class TestPolymorphism {
 	            System.out.println(media.toString());
 	        }
 	    }
-	
+
 
 
 }

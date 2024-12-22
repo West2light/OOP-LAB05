@@ -16,7 +16,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import hust.soict.dsai.aims.media.CompactDisc;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 
 public class ScreenAddCompactDiscToStore extends JFrame{
@@ -35,31 +34,31 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 		this.store = store;
 		Container cp = getContentPane();
 		cp.setLayout(new GridLayout(7,7));
-		
+
 		cp.add(new JLabel("Enter title"));
 		title = new JTextField(20);
 		cp.add(title);
-		
+
 		cp.add(new JLabel("Enter category"));
 		category = new JTextField(20);
 		cp.add(category);
-		
+
 		cp.add(new JLabel("Enter director"));
 		director = new JTextField(20);
 		cp.add(director);
-		
+
 		cp.add(new JLabel("Enter length"));
 		length = new JTextField(20);
 		cp.add(length);
-		
+
 		cp.add(new JLabel("Enter cost"));
 		cost = new JTextField(20);
 		cp.add(cost);
-		
+
 		cp.add(new JLabel("Enter artist"));
 		artist = new JTextField(20);
 		cp.add(artist);
-		
+
 
 		btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
@@ -68,12 +67,12 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				new ScreenStoreManager(store);
 				dispose();
-				
+
 			}
-			
+
 		});
 		btnSubmit = new JButton("Enter");
-		
+
 		btnSubmit.addActionListener(new ActionListener() {
 
 			@Override
@@ -92,7 +91,7 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 					JFrame frame = new JFrame();
 					JDialog dialog = new JDialog(frame, "Play media", true);
 			        JPanel mainGui = new JPanel(new BorderLayout());
-			        
+
 			        mainGui.setBorder(new EmptyBorder(50, 50, 50, 50));
 			        mainGui.add(new JLabel("Cost must be float and Length must be integer"));
 			        JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -105,7 +104,7 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 							dialog.setVisible(false);
 							frame.setVisible(false);
 						}
-			        	
+
 			        });
 			        buttonPanel.add(close);
 			        frame.setLocationRelativeTo(null);
@@ -115,17 +114,17 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 			        dialog.setVisible(true);
 				}
 			}
-			
+
 		});
 		cp.add(btnBack);
 		cp.add(btnSubmit);
 
 		setTitle("Add DVD");
 		setSize(600,240);
-		
+
 		setLocationRelativeTo(null);
 		setVisible(true);
-		
+
 	}
 
 }

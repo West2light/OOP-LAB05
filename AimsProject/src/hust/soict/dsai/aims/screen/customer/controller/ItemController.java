@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.screen.customer.controller;
 
+
+
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 import javafx.event.ActionEvent;
@@ -16,8 +18,8 @@ public class ItemController {
 
     @FXML
     private Label lblTitle;
-    
-    
+
+
 	public void setData(Media media){
 		this.media = media;
 		lblTitle.setText(media.getTitle());
