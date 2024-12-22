@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.store.Store;
 
-public class ScreenAddBookToStore extends JFrame{
+public class AddBookToStoreScreen extends JFrame{
 	private Store store;
 	private JTextField title;
 	private JTextField category;
@@ -30,7 +30,7 @@ public class ScreenAddBookToStore extends JFrame{
 	private JButton btnSubmit;
 	private JButton btnBack;
 
-	public ScreenAddBookToStore(Store store) {
+	public AddBookToStoreScreen(Store store) {
 		this.store = store;
 		Container cp = getContentPane();
 		cp.setLayout(new GridLayout(6,6));
@@ -55,7 +55,7 @@ public class ScreenAddBookToStore extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ScreenStoreManager(store);
+				new StoreManagerScreen(store);
 				dispose();
 
 			}
@@ -81,7 +81,7 @@ public class ScreenAddBookToStore extends JFrame{
 						book.addAuthor(author);
 					}
 					store.addMedia(book);
-					new ScreenStoreManager(store);
+					new StoreManagerScreen(store);
 					dispose();
 				}catch(IllegalArgumentException ev){
 					JFrame frame = new JFrame();

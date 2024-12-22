@@ -51,4 +51,18 @@ public class DigitalVideoDisc extends Disc implements Playable{
         	System.out.println("DVD length: " + this.getLength());
     	}
     }
+
+	 public boolean isMatch(String title){
+		 	if (this.getTitle().toLowerCase().equals(title.toLowerCase())) {
+		 		return true;
+		 	}
+		 	return false;
+		 }
+		 public boolean isMatch(int id){
+		 	if (this.getId() == id) {
+		 		return true;
+		 	}
+		 	return false;
+		 }
+		
 }

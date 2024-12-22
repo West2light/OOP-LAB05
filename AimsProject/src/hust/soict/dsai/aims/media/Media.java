@@ -117,4 +117,12 @@ public abstract class Media implements Comparable<Media> {
 		}
         return 0;
     }
+
+	public boolean isMatch(String title){
+		return (this.getTitle().toLowerCase().equals(title.toLowerCase()));
+	}
+    
+    public boolean isMatch(int id) {
+    	return this.getId() == id;
+    }
 }
