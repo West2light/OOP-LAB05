@@ -1,11 +1,13 @@
-
-
 package hust.soict.dsai.aims.media;
+
+
+
+
 
 import java.util.ArrayList;
 
 public class Book extends Media {
-    private ArrayList<String> authors = new ArrayList<String>();
+    private ArrayList<String> authors = new ArrayList<>();
 
     public Book() {
         super(0, null, null, 0f);
@@ -15,15 +17,18 @@ public class Book extends Media {
         super(id, title, category, cost);
     }
 
-    public void setTitle(String title) {
+    @Override
+	public void setTitle(String title) {
         super.setTitle(title);
     }
 
-    public void setCategory(String category) {
+    @Override
+	public void setCategory(String category) {
         super.setCategory(category);
     }
 
-    public void setCost(float cost) {
+    @Override
+	public void setCost(float cost) {
         super.setCost(cost);
     }
 
@@ -48,8 +53,8 @@ public class Book extends Media {
     @Override
     public String toString() {
         String baseInfo = super.toString();
-        return baseInfo.replace(")", 
-            String.format(", Authors: %s)", 
+        return baseInfo.replace(")",
+            String.format(", Authors: %s)",
                 authors.isEmpty() ? "N/A" : String.join(", ", authors)));
     }
-} 
+}

@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JFrame;
 
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
@@ -74,7 +74,7 @@ public class ScreenStoreAddItem extends JFrame {
 			MediaStore cell = new MediaStore(mediaInStore.get(i));
 			center.add(cell);
 		}
-		
+
 		return center;
 	}
 	public ScreenStoreAddItem(Store store) {

@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.screen.manager;
 
+
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;

@@ -1,12 +1,13 @@
 package hust.soict.dsai.aims.store;
+
+
 import java.util.ArrayList;
 
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Media;
 
 public class Store {
     public static int maxDvdInStore=100;
-    private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+    private ArrayList<Media> itemsInStore = new ArrayList<>();
     private static int qtyAvailable = 0;
     public void addMedia(Media media) {
         if (qtyAvailable < maxDvdInStore) {
@@ -32,7 +33,7 @@ public class Store {
                 return media;
             }
         }
-        System.out.println("No match is found!"); 
+        System.out.println("No match is found!");
         return null;
     }
 }
