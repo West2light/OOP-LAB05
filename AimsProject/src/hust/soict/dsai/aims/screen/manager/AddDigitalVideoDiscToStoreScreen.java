@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.store.Store;
 
-public class ScreenAddDigitalVideoDiscToStore extends JFrame {
+public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 	private Store store;
 	private JTextField title;
 	private JTextField category;
@@ -27,7 +27,7 @@ public class ScreenAddDigitalVideoDiscToStore extends JFrame {
 	private JTextField cost;
 	private JButton btnSubmit;
 	private JButton btnBack;
-	public ScreenAddDigitalVideoDiscToStore(Store store) {
+	public AddDigitalVideoDiscToStoreScreen(Store store) {
 		this.store = store;
 		Container cp = getContentPane();
 		cp.setLayout(new GridLayout(6,6));
@@ -57,7 +57,7 @@ public class ScreenAddDigitalVideoDiscToStore extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ScreenStoreManager(store);
+				new StoreManagerScreen(store);
 				dispose();
 
 			}
@@ -78,7 +78,7 @@ public class ScreenAddDigitalVideoDiscToStore extends JFrame {
 					float costFloat = Float.parseFloat(cost.getText());
 					DigitalVideoDisc dvd = new DigitalVideoDisc(1,titleString, categoryString, directorString, lengthInt, costFloat);
 					store.addMedia(dvd);
-					new ScreenStoreManager(store);
+					new StoreManagerScreen(store);
 					dispose();
 				}catch(IllegalArgumentException ev){
 					JFrame frame = new JFrame();

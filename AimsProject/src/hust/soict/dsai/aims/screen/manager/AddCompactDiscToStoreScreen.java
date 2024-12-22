@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.store.Store;
 
-public class ScreenAddCompactDiscToStore extends JFrame{
+public class AddCompactDiscToStoreScreen extends JFrame{
 	private Store store;
 
 	private JTextField title;
@@ -30,7 +30,7 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 	private JButton btnSubmit;
 	private JButton btnBack;
 
-	public ScreenAddCompactDiscToStore(Store store) {
+	public AddCompactDiscToStoreScreen(Store store) {
 		this.store = store;
 		Container cp = getContentPane();
 		cp.setLayout(new GridLayout(7,7));
@@ -65,7 +65,7 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ScreenStoreManager(store);
+				new StoreManagerScreen(store);
 				dispose();
 
 			}
@@ -85,7 +85,7 @@ public class ScreenAddCompactDiscToStore extends JFrame{
 					float costFloat = Float.parseFloat(cost.getText());
 					CompactDisc cd = new CompactDisc(1, titleString,artistString, categoryString, directorString,  costFloat);
 					store.addMedia(cd);
-					new ScreenStoreManager(store);
+					new StoreManagerScreen(store);
 					dispose();
 				}catch(IllegalArgumentException ev){
 					JFrame frame = new JFrame();

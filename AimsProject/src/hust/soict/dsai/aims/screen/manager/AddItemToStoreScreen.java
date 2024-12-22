@@ -7,8 +7,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -23,9 +21,11 @@ import javax.swing.JPanel;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
 
-public class ScreenStoreManager extends JFrame {
+public class AddItemToStoreScreen extends JFrame {
+	// Fix eclipse warning
+	private static final long serialVersionUID = 1L;
 	private Store store;
-	JPanel createNorth() {
+	JPanel createNorthPanel() {
 		JPanel north = new JPanel();
 		north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
 		north.add(createMenuBar());
@@ -37,41 +37,10 @@ public class ScreenStoreManager extends JFrame {
 		menu.add(new JMenuItem("View store"));
 
 		JMenu smUpdateStore = new JMenu("Update store");
-		JMenuItem addBook = new JMenuItem("Add Book");
-		JMenuItem addCD = new JMenuItem("Add CD");
-		JMenuItem addDVD = new JMenuItem("Add DVD");
-
-		addDVD.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new ScreenAddDigitalVideoDiscToStore(store);
-				dispose();
-
-			}
-
-		});
-		addCD.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				new ScreenAddCompactDiscToStore(store);
-				dispose();
-			}
-
-		});
-		addBook.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new ScreenAddBookToStore(store);
-				dispose();
-			}
-
-		});
-		smUpdateStore.add(addBook);
-		smUpdateStore.add(addCD);
-		smUpdateStore.add(addDVD);
+		smUpdateStore.add(new JMenuItem("Add a Book"));
+		smUpdateStore.add(new JMenuItem("Add a CD"));
+		smUpdateStore.add(new JMenuItem("Add a DVD"));
 		menu.add(smUpdateStore);
-
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -108,12 +77,12 @@ public class ScreenStoreManager extends JFrame {
 
 		return center;
 	}
-	public ScreenStoreManager(Store store) {
+	public AddItemToStoreScreen(Store store) {
 		this.store = store;
 
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
-		cp.add(createNorth(), BorderLayout.NORTH);
+		cp.add(createNorthPanel(), BorderLayout.NORTH);
 		cp.add(createCenter(), BorderLayout.CENTER);
 
 		setTitle("Store");
@@ -123,6 +92,6 @@ public class ScreenStoreManager extends JFrame {
 	}
 	public static void main(String[] args) {
 		Store store = new Store();
-		ScreenStoreManager sms = new ScreenStoreManager(store);
+		StoreManagerScreen sms = new StoreManagerScreen(store);
 	}
 }
