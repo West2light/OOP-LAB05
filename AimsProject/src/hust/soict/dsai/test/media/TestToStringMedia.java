@@ -11,7 +11,7 @@ import hust.soict.dsai.aims.media.Track;
 
 public class TestToStringMedia{
 	public static void main(String[] args){
-		List<Media> items = new ArrayList<Media>();
+		List<Media> items = new ArrayList<>();
 		Book book1 = new Book(1, "Harry Potter", "Fantasy", 20f);
 		book1.addAuthor("J.K.Rowling");
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc(2, "The Lion King", "Animation", 19.95f);

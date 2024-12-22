@@ -13,20 +13,27 @@ public class MediaComparatorByTitleCost implements Comparator<Media> {
                 return titleCompare;
             }
             // Nếu title giống nhau, sắp xếp theo cost giảm dần
-            if (m1.getCost() > m2.getCost()) return -1;
-            if (m1.getCost() < m2.getCost()) return 1;
+            if (m1.getCost() > m2.getCost()) {
+				return -1;
+			}
+            if (m1.getCost() < m2.getCost()) {
+				return 1;
+			}
             return 0;
         }
-        
+
         // Xử lý các trường hợp title null
         if (m1.getTitle() == null && m2.getTitle() != null)
-            return 1;  // null xếp sau
-        if (m1.getTitle() != null && m2.getTitle() == null)
-            return -1; // null xếp sau
-        
+		 {
+			return 1;  // null xếp sau
+		}
         // Cả hai title đều null, so sánh theo cost
-        if (m1.getCost() > m2.getCost()) return -1;
-        if (m1.getCost() < m2.getCost()) return 1;
+        if ((m1.getTitle() != null && m2.getTitle() == null) || (m1.getCost() > m2.getCost())) {
+			return -1;
+		}
+        if (m1.getCost() < m2.getCost()) {
+			return 1;
+		}
         return 0;
     }
-} 
+}

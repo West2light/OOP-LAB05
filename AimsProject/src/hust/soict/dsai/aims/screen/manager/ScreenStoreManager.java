@@ -13,12 +13,12 @@ import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JFrame;
 
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.store.Store;
@@ -48,16 +48,16 @@ public class ScreenStoreManager extends JFrame {
 				dispose();
 
 			}
-			
+
 		});
 		addCD.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				new ScreenAddCompactDiscToStore(store);
 				dispose();
 			}
-			
+
 		});
 		addBook.addActionListener(new ActionListener() {
 			@Override
@@ -65,7 +65,7 @@ public class ScreenStoreManager extends JFrame {
 				new ScreenAddBookToStore(store);
 				dispose();
 			}
-			
+
 		});
 		smUpdateStore.add(addBook);
 		smUpdateStore.add(addCD);
@@ -105,7 +105,7 @@ public class ScreenStoreManager extends JFrame {
 			MediaStore cell = new MediaStore(mediaInStore.get(i));
 			center.add(cell);
 		}
-		
+
 		return center;
 	}
 	public ScreenStoreManager(Store store) {

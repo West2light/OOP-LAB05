@@ -1,5 +1,6 @@
 package hust.soict.dsai.aims.disc;
 
+
 public class DigitalVideoDisc {
 
 
@@ -9,7 +10,7 @@ public class DigitalVideoDisc {
     private int length;
     private float cost;
 
- 
+
     private static int nbDigitalVideoDisc = 0;
 
 
@@ -54,7 +55,7 @@ public class DigitalVideoDisc {
     public DigitalVideoDisc(String title) {
         this.title = title;
 
-    
+
         nbDigitalVideoDisc++;
         this.id = nbDigitalVideoDisc;
     }
@@ -64,7 +65,7 @@ public class DigitalVideoDisc {
         this.category = category;
         this.cost = cost;
 
-     
+
         nbDigitalVideoDisc++;
         this.id = nbDigitalVideoDisc;
     }
@@ -83,12 +84,12 @@ public class DigitalVideoDisc {
         return this.title.equalsIgnoreCase(title);
     }
 
-  
+
     @Override
     public String toString() {
         return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + "$";
     }
-    
+
     public void setTitle(String title2) {
         this.title = title2;
     }
