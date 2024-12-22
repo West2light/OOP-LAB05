@@ -23,6 +23,9 @@ public class Store {
             System.out.println("Media not found in cart.");
         }
     }
+    public ArrayList<Media> getItemsInStore() {
+  		return itemsInStore;
+  	}
     public Media searchByTitle(String title) {
         for (Media media : itemsInStore) {
             if (title.equals(media.getTitle())) {
