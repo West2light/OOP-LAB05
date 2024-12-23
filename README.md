@@ -1,5 +1,6 @@
-# topic/modify-media-class
-modify equal() method of media class
+## Update Class Diagram
+1. Add Exception Hierarchical Tree
+2. Update Class Diagram
 
 
 
