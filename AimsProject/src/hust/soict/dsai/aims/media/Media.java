@@ -47,22 +47,30 @@ public abstract class Media implements Comparable<Media> {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        // Kiểm tra nếu obj là null hoặc không phải instance của Media
-        if (obj == null || !(obj instanceof Media)) {
-            return false;
-        }
-
-        // Ép kiểu obj thành Media
-        Media media = (Media) obj;
-
-        // So sánh title (cả hai đều null hoặc giống nhau)
-        if (this.title == null) {
-            return media.title == null;
-        }
-        return this.title.equals(media.title);
-    }
-
+	/*
+	 * public boolean equals(Object obj) { // Kiểm tra nếu obj là null hoặc không
+	 * phải instance của Media if (obj == null || !(obj instanceof Media)) { return
+	 * false; }
+	 * 
+	 * // Ép kiểu obj thành Media Media media = (Media) obj;
+	 * 
+	 * // So sánh title (cả hai đều null hoặc giống nhau) if (this.title == null) {
+	 * return media.title == null; } return this.title.equals(media.title); }
+	 */
+    public boolean equals(Object o) throws NullPointerException, ClassCastException{
+		if (o != null) {
+			if (o instanceof Media) {
+				Media media = (Media) o;
+				return (this.getTitle().equals(media.getTitle()) && (this.getCost() == media.getCost()));
+			}
+			else {
+				throw new ClassCastException();
+			}
+		}
+		else {
+			throw new NullPointerException();
+		}
+	}
     @Override
     public String toString() {
         return String.format("%s - %s - %s: %.2f $ (ID: %d)",
