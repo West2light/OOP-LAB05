@@ -1,6 +1,6 @@
-#topic/Reading-documnet
-Please read the following links for better understanding.
-•	Exception-handling basics: 
-https://developer.ibm.com/tutorials/j-perry-exceptions/
-•	Basic guidelines: Although the examples are in C++, the ideas are important. 
-https://docs.microsoft.com/en-us/cpp/cpp/errors-and-exception-handling-modern-cpp?view=vs-2019#basic-guidelines
+## Update Class Diagram
+1. Add Exception Hierarchical Tree
+2. Update Class Diagram
+
+
+
