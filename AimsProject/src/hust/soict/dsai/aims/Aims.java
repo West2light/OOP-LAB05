@@ -12,13 +12,14 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 import hust.soict.dsai.aims.media.Disc;
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.PlayerException;
 
 
 public class Aims {
     private static Store store = new Store();
     private static Cart cart = new Cart();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws PlayerException {
     	store.addMedia(new DigitalVideoDisc(1,"The Godfather", "Crime", "Francis Ford Coppola", 175, 24.99f));
     	store.addMedia(new DigitalVideoDisc(2,"The Dark Knight", "Action", "Christopher Nolan", 152, 19.99f));
     	store.addMedia(new DigitalVideoDisc(3,"Interstellar", "Sci-Fi", "Christopher Nolan", 169, 21.99f));
@@ -63,7 +64,7 @@ public class Aims {
     }
 
     // View Store Menu
-    public static void viewStoreMenu(Scanner scanner) {
+    public static void viewStoreMenu(Scanner scanner) throws PlayerException {
         while (true) {
             storeMenu();
             int choice = scanner.nextInt();
@@ -104,7 +105,7 @@ public class Aims {
     }
 
     // See Media Details
-    public static void seeMediaDetails(Scanner scanner) {
+    public static void seeMediaDetails(Scanner scanner) throws PlayerException {
         System.out.print("\nEnter the title of the media: ");
         String title = scanner.nextLine();
         Media media = store.searchByTitle(title);
@@ -117,7 +118,7 @@ public class Aims {
     }
 
     // Media Details Menu
-    public static void mediaDetailsMenu(Scanner scanner, Media media) {
+    public static void mediaDetailsMenu(Scanner scanner, Media media) throws PlayerException {
         while (true) {
             System.out.println("\nOptions: ");
             System.out.println("--------------------------------");
@@ -163,7 +164,7 @@ public class Aims {
     }
 
     // Play Media
-    public static void playMedia(Scanner scanner) {
+    public static void playMedia(Scanner scanner) throws PlayerException {
         System.out.print("\nEnter the title of the media to play: ");
         String title = scanner.nextLine();
         Media media = store.searchByTitle(title);
@@ -232,7 +233,7 @@ public class Aims {
     }
 
     // Cart Menu
-    public static void cartMenu(Scanner scanner) {
+    public static void cartMenu(Scanner scanner) throws PlayerException {
         while (true) {
             System.out.println("\nOptions: ");
             System.out.println("--------------------------------");

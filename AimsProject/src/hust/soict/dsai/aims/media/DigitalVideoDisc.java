@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-
+import hust.soict.dsai.aims.exception.PlayerException;
 
 public class DigitalVideoDisc extends Disc implements Playable{
 
@@ -43,26 +43,36 @@ public class DigitalVideoDisc extends Disc implements Playable{
 	// }
 
 	@Override
-	public void play() {
-    	if (this.getLength() <= 0) {
-    		System.out.println("DVD " + this.getTitle() + " can't be played!");
-    	} else {
-    		System.out.println("Playing DVD: " + this.getTitle());
-        	System.out.println("DVD length: " + this.getLength());
-    	}
-    }
+	/*
+	 * public void play() { if (this.getLength() <= 0) { System.out.println("DVD " +
+	 * this.getTitle() + " can't be played!"); } else {
+	 * System.out.println("Playing DVD: " + this.getTitle());
+	 * System.out.println("DVD length: " + this.getLength()); } }
+	 */
 
-	 public boolean isMatch(String title){
-		 	if (this.getTitle().toLowerCase().equals(title.toLowerCase())) {
-		 		return true;
-		 	}
-		 	return false;
-		 }
-		 public boolean isMatch(int id){
-		 	if (this.getId() == id) {
-		 		return true;
-		 	}
-		 	return false;
-		 }
+	/*
+	 * public boolean isMatch(String title){ if
+	 * (this.getTitle().toLowerCase().equals(title.toLowerCase())) { return true; }
+	 * return false; } public boolean isMatch(int id){ if (this.getId() == id) {
+	 * return true; } return false; }
+	 */
+
+			public void play() throws PlayerException {
+				if (this.getLength() > 0) {
+					System.out.println("Playing DVD: " + this.getTitle());
+					System.out.println("DVD length: " + this.getLength());	
+				}else {
+					throw new PlayerException("ERROR: DVD length is non-positive!");
+				}
+			}
+			
+			public String playMedia() throws PlayerException{
+				if (this.getLength() > 0) {
+					String out = "Playing DVD: " + this.getTitle() + "\n" + "DVD length: " + this.getLength();
+					return out;
+				}else {
+					throw new PlayerException("ERROR: DVD length is non-positive!");
+				}
+			}
 		
 }
